@@ -1,0 +1,50 @@
+# This workflow deploys the Lex bot by running the cross-account Python script
+# It is triggered manually from the GitHub "Actions" tab.
+
+name: Deploy Lex Bot
+
+# 1. TRIGGER: This workflow must be run manually
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 2. CHECKOUT: Get your Python script and requirements.txt from the repo
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 3. SETUP PYTHON: Set up the Python environment
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      # 4. INSTALL LIBS: Install boto3 and requests from your requirements.txt
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          
+      # 5. CONFIGURE AWS: This is the most important step.
+      #    It builds the ~/.aws/credentials file from your GitHub Secrets.
+      #    Your script will find and use these profiles automatically.
+      - name: Configure AWS Credentials
+        run: |
+          mkdir -p ~/.aws
+          touch ~/.aws/credentials
+          
+          echo "[optum]" >> ~/.aws/credentials
+          echo "aws_access_key_id = ${{ secrets.ACCOUNT_A_AWS_ACCESS_KEY_ID }}" >> ~/.aws/credentials
+          echo "aws_secret_access_key = ${{ secrets.ACCOUNT_A_AWS_SECRET_ACCESS_KEY }}" >> ~/.aws/credentials
+          
+          echo "[mobin28]" >> ~/.aws/credentials
+          echo "aws_access_key_id = ${{ secrets.ACCOUNT_B_AWS_ACCESS_KEY_ID }}" >> ~/.aws/credentials
+          echo "aws_secret_access_key = ${{ secrets.ACCOUNT_B_AWS_SECRET_ACCESS_KEY }}" >> ~/.aws/credentials
+
+      # 6. RUN SCRIPT: Now that Python is ready and auth is configured, run your script
+      - name: Run Lex Bot Sync Script
+        run: |
+          python create_lexbot_version_cross_acc.py
