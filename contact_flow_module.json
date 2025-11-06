@@ -1,0 +1,492 @@
+{
+  "Version": "2019-10-30",
+  "StartAction": "Call recording enabled?",
+  "Metadata": {
+    "entryPointPosition": {
+      "x": -264,
+      "y": 139.2
+    },
+    "ActionMetadata": {
+      "Enable call & screen recording only": {
+        "position": {
+          "x": 886.4,
+          "y": -40.8
+        },
+        "isFriendlyName": true
+      },
+      "Enable call recording only": {
+        "position": {
+          "x": 890.4,
+          "y": 329.6
+        },
+        "isFriendlyName": true
+      },
+      "Enable screen recording only": {
+        "position": {
+          "x": 892,
+          "y": 514.4
+        },
+        "isFriendlyName": true
+      },
+      "Disable all recording and Contact Lens": {
+        "position": {
+          "x": 888.8,
+          "y": 870.4
+        },
+        "isFriendlyName": true
+      },
+      "Contact Lens Enabled?": {
+        "position": {
+          "x": 417.6,
+          "y": -160
+        },
+        "isFriendlyName": true,
+        "conditions": [],
+        "conditionMetadata": [
+          {
+            "id": "a492ed03-f204-4cf5-9422-df5d51bbbd2a",
+            "operator": {
+              "name": "Equals",
+              "value": "Equals",
+              "shortDisplay": "="
+            },
+            "value": "true"
+          }
+        ]
+      },
+      "Enable call & screen recording and Contact Lens": {
+        "position": {
+          "x": 884,
+          "y": -188.8
+        },
+        "isFriendlyName": true,
+        "parameters": {
+          "AnalyticsBehavior": {
+            "AnalyticsLanguage": {
+              "useDynamic": true
+            }
+          }
+        }
+      },
+      "Contact Lens Enabled?-2": {
+        "position": {
+          "x": 421.6,
+          "y": 185.6
+        },
+        "isFriendlyName": true,
+        "conditions": [],
+        "conditionMetadata": [
+          {
+            "id": "46867c89-30ad-4f08-8591-77c5dc2f8bde",
+            "operator": {
+              "name": "Equals",
+              "value": "Equals",
+              "shortDisplay": "="
+            },
+            "value": "true"
+          }
+        ]
+      },
+      "def46b94-e093-4a26-914b-90991cb24e49": {
+        "position": {
+          "x": 1305.6,
+          "y": 336.8
+        }
+      },
+      "Enable call recording and Contact Lens": {
+        "position": {
+          "x": 881.6,
+          "y": 166.4
+        },
+        "isFriendlyName": true,
+        "parameters": {
+          "AnalyticsBehavior": {
+            "AnalyticsLanguage": {
+              "useDynamic": true
+            }
+          }
+        }
+      },
+      "Screen recording enabled?": {
+        "position": {
+          "x": 141.6,
+          "y": -42.4
+        },
+        "isFriendlyName": true,
+        "conditions": [],
+        "conditionMetadata": [
+          {
+            "id": "4dabbfe7-ddbd-4108-86fd-195caebab113",
+            "operator": {
+              "name": "Equals",
+              "value": "Equals",
+              "shortDisplay": "="
+            },
+            "value": "true"
+          }
+        ]
+      },
+      "Screen recording enabled?-2": {
+        "position": {
+          "x": 183.2,
+          "y": 634.4
+        },
+        "isFriendlyName": true,
+        "conditions": [],
+        "conditionMetadata": [
+          {
+            "id": "ff8ff940-9844-4871-bb80-0138fa5daffe",
+            "operator": {
+              "name": "Equals",
+              "value": "Equals",
+              "shortDisplay": "="
+            },
+            "value": "true"
+          }
+        ]
+      },
+      "Call recording enabled?": {
+        "position": {
+          "x": -72,
+          "y": 137.6
+        },
+        "isFriendlyName": true,
+        "conditions": [],
+        "conditionMetadata": [
+          {
+            "id": "96a34b54-8fd0-4719-9c0a-78dd0862f79c",
+            "operator": {
+              "name": "Equals",
+              "value": "Equals",
+              "shortDisplay": "="
+            },
+            "value": "true"
+          }
+        ]
+      }
+    },
+    "Annotations": [
+      {
+        "isFolded": false,
+        "size": {
+          "width": 300,
+          "height": 295
+        },
+        "actionId": "",
+        "id": "5f732b1c-7b70-4f59-a736-e7cce898fa50",
+        "position": {
+          "x": -837,
+          "y": -46
+        },
+        "type": "default",
+        "content": "To Enable Contact Lens for Voice, Call Recording should be enabled."
+      }
+    ],
+    "name": "setRecordingAndContactLens",
+    "description": "Deployed using Boto3 script",
+    "status": "published",
+    "hash": {}
+  },
+  "Actions": [
+    {
+      "Parameters": {
+        "RecordingBehavior": {
+          "ScreenRecordedParticipants": [
+            "Agent"
+          ],
+          "RecordedParticipants": [
+            "Agent",
+            "Customer"
+          ]
+        }
+      },
+      "Identifier": "Enable call & screen recording only",
+      "Type": "UpdateContactRecordingBehavior",
+      "Transitions": {
+        "NextAction": "def46b94-e093-4a26-914b-90991cb24e49"
+      }
+    },
+    {
+      "Parameters": {
+        "RecordingBehavior": {
+          "RecordedParticipants": [
+            "Agent",
+            "Customer"
+          ]
+        }
+      },
+      "Identifier": "Enable call recording only",
+      "Type": "UpdateContactRecordingBehavior",
+      "Transitions": {
+        "NextAction": "def46b94-e093-4a26-914b-90991cb24e49"
+      }
+    },
+    {
+      "Parameters": {
+        "RecordingBehavior": {
+          "ScreenRecordedParticipants": [
+            "Agent"
+          ],
+          "RecordedParticipants": []
+        }
+      },
+      "Identifier": "Enable screen recording only",
+      "Type": "UpdateContactRecordingBehavior",
+      "Transitions": {
+        "NextAction": "def46b94-e093-4a26-914b-90991cb24e49"
+      }
+    },
+    {
+      "Parameters": {
+        "RecordingBehavior": {
+          "RecordedParticipants": []
+        }
+      },
+      "Identifier": "Disable all recording and Contact Lens",
+      "Type": "UpdateContactRecordingBehavior",
+      "Transitions": {
+        "NextAction": "def46b94-e093-4a26-914b-90991cb24e49"
+      }
+    },
+    {
+      "Parameters": {
+        "ComparisonValue": "$.Attributes.contactLensEnabled"
+      },
+      "Identifier": "Contact Lens Enabled?",
+      "Type": "Compare",
+      "Transitions": {
+        "NextAction": "Enable call & screen recording only",
+        "Conditions": [
+          {
+            "NextAction": "Enable call & screen recording and Contact Lens",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "true"
+              ]
+            }
+          }
+        ],
+        "Errors": [
+          {
+            "NextAction": "Enable call & screen recording only",
+            "ErrorType": "NoMatchingCondition"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "RecordingBehavior": {
+          "RecordedParticipants": [
+            "Agent",
+            "Customer"
+          ],
+          "ScreenRecordedParticipants": [
+            "Agent"
+          ],
+          "IVRRecordingBehavior": "Disabled"
+        },
+        "AnalyticsBehavior": {
+          "Enabled": "True",
+          "AnalyticsLanguage": "$.LanguageCode",
+          "AnalyticsRedactionBehavior": "Disabled",
+          "AnalyticsRedactionResults": "RedactedAndOriginal",
+          "ChannelConfiguration": {
+            "Chat": {
+              "AnalyticsModes": []
+            },
+            "Voice": {
+              "AnalyticsModes": [
+                "RealTime"
+              ]
+            }
+          },
+          "SummaryConfiguration": {
+            "SummaryModes": [
+              "PostContact"
+            ]
+          },
+          "SentimentConfiguration": {
+            "Enabled": "True"
+          }
+        }
+      },
+      "Identifier": "Enable call & screen recording and Contact Lens",
+      "Type": "UpdateContactRecordingBehavior",
+      "Transitions": {
+        "NextAction": "def46b94-e093-4a26-914b-90991cb24e49"
+      }
+    },
+    {
+      "Parameters": {
+        "ComparisonValue": "$.Attributes.contactLensEnabled"
+      },
+      "Identifier": "Contact Lens Enabled?-2",
+      "Type": "Compare",
+      "Transitions": {
+        "NextAction": "Enable call recording only",
+        "Conditions": [
+          {
+            "NextAction": "Enable call recording and Contact Lens",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "true"
+              ]
+            }
+          }
+        ],
+        "Errors": [
+          {
+            "NextAction": "Enable call recording only",
+            "ErrorType": "NoMatchingCondition"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {},
+      "Identifier": "def46b94-e093-4a26-914b-90991cb24e49",
+      "Type": "EndFlowModuleExecution",
+      "Transitions": {}
+    },
+    {
+      "Parameters": {
+        "RecordingBehavior": {
+          "RecordedParticipants": [
+            "Agent",
+            "Customer"
+          ],
+          "IVRRecordingBehavior": "Disabled"
+        },
+        "AnalyticsBehavior": {
+          "Enabled": "True",
+          "AnalyticsLanguage": "$.LanguageCode",
+          "AnalyticsRedactionBehavior": "Disabled",
+          "AnalyticsRedactionResults": "RedactedAndOriginal",
+          "ChannelConfiguration": {
+            "Chat": {
+              "AnalyticsModes": []
+            },
+            "Voice": {
+              "AnalyticsModes": [
+                "RealTime"
+              ]
+            }
+          },
+          "SummaryConfiguration": {
+            "SummaryModes": [
+              "PostContact"
+            ]
+          },
+          "SentimentConfiguration": {
+            "Enabled": "True"
+          }
+        }
+      },
+      "Identifier": "Enable call recording and Contact Lens",
+      "Type": "UpdateContactRecordingBehavior",
+      "Transitions": {
+        "NextAction": "def46b94-e093-4a26-914b-90991cb24e49"
+      }
+    },
+    {
+      "Parameters": {
+        "ComparisonValue": "$.Attributes.screenRecordingEnabled"
+      },
+      "Identifier": "Screen recording enabled?",
+      "Type": "Compare",
+      "Transitions": {
+        "NextAction": "Contact Lens Enabled?-2",
+        "Conditions": [
+          {
+            "NextAction": "Contact Lens Enabled?",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "true"
+              ]
+            }
+          }
+        ],
+        "Errors": [
+          {
+            "NextAction": "Contact Lens Enabled?-2",
+            "ErrorType": "NoMatchingCondition"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "ComparisonValue": "$.Attributes.screenRecordingEnabled"
+      },
+      "Identifier": "Screen recording enabled?-2",
+      "Type": "Compare",
+      "Transitions": {
+        "NextAction": "Disable all recording and Contact Lens",
+        "Conditions": [
+          {
+            "NextAction": "Enable screen recording only",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "true"
+              ]
+            }
+          }
+        ],
+        "Errors": [
+          {
+            "NextAction": "Disable all recording and Contact Lens",
+            "ErrorType": "NoMatchingCondition"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "ComparisonValue": "$.Attributes.callRecordingEnabled"
+      },
+      "Identifier": "Call recording enabled?",
+      "Type": "Compare",
+      "Transitions": {
+        "NextAction": "Screen recording enabled?-2",
+        "Conditions": [
+          {
+            "NextAction": "Screen recording enabled?",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "true"
+              ]
+            }
+          }
+        ],
+        "Errors": [
+          {
+            "NextAction": "Screen recording enabled?-2",
+            "ErrorType": "NoMatchingCondition"
+          }
+        ]
+      }
+    }
+  ],
+  "Settings": {
+    "InputParameters": [],
+    "OutputParameters": [],
+    "Transitions": [
+      {
+        "DisplayName": "Success",
+        "ReferenceName": "Success",
+        "Description": ""
+      },
+      {
+        "DisplayName": "Error",
+        "ReferenceName": "Error",
+        "Description": ""
+      }
+    ]
+  }
+}
